@@ -9,6 +9,14 @@ dotenv.config({ path: './config.env' });
 const app = express();
 app.use(cors());
 
+let mysql = require('mysql');
+let pool = mysql.createPool({
+  host     : process.env.HOST,
+  user     : process.env.USERNAME,
+  password : process.env.PASSWORD,
+  database : process.env.DATABASE,
+});
+
 // Dev logging
 if (process.env.NODE_ENV === 'development') {
     console.log('development mode');
@@ -23,6 +31,14 @@ app.get('/test', (req, res) => {
   res.json({
     "message" : "It works!"
   })
+})
+
+app.get('/get_users', (req, res) => {
+    pool.query('SELECT * FROM users', function (error, results, fields) {
+      if (error) throw error;
+      // console.log('The first result is: ', results[0]);
+      res.json(results);
+    }); 
 })
 
 // Handle production
