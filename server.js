@@ -15,9 +15,9 @@ if (process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'));
   }
 
-app.get('/', (req, res) => {
-    res.send('This is the homepage');
-})
+// app.get('/', (req, res) => {
+//     res.send('This is the homepage');
+// })
 
 app.get('/test', (req, res) => {
   res.json({
