@@ -2,6 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const dotenv = require('dotenv');
 const cors = require('cors');
+const fetch = require('node-fetch');
 
 // Load env
 dotenv.config({ path: './config.env' });
@@ -39,6 +40,16 @@ app.get('/get_users', (req, res) => {
       // console.log('The first result is: ', results[0]);
       res.json(results);
     }); 
+})
+
+app.get('/search_movies/:type/:page', async(req, res) => {
+  const {type, page} = req.params;
+  const response = await fetch(`https://api.themoviedb.org/3/movie/${type}?api_key=5fb93387541fc093f329bc1481d3b3e8&language=en-US&page=${page}`)
+  const data = await response.json();
+
+  res.json({
+    data: data.results
+  })
 })
 
 // Handle production
