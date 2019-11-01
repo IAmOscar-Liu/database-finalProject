@@ -42,6 +42,16 @@ app.get('/get_users', (req, res) => {
     }); 
 })
 
+app.get('/find_user/:firstName/:lastName/:password', async(req, res) => {
+  const {firstName, lastName, password} = req.params;
+  //console.log(firstName,lastName,password);
+  pool.query(`SELECT * FROM users WHERE first_name = '${firstName}' AND last_name = '${lastName}' AND password = '${password}'`, function (error, results, fields) {
+    if (error) throw error;
+    if(results.length == 0) return res.json({result: 'no result'})
+    res.json({result: results[0]});
+  });
+})
+
 app.get('/search_movies/:type/:page', async(req, res) => {
   const {type, page} = req.params;
   const response = await fetch(`https://api.themoviedb.org/3/movie/${type}?api_key=5fb93387541fc093f329bc1481d3b3e8&language=en-US&page=${page}`)
