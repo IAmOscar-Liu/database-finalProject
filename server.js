@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 const cors = require('cors');
 const fetch = require('node-fetch');
 const uuid = require('uuidv4').default;
+const ip = require('ip');
 
 // Load env
 dotenv.config({ path: './config.env' });
@@ -34,6 +35,12 @@ if (process.env.NODE_ENV === 'development') {
 app.get('/test', (req, res) => {
   res.json({
     "message" : "It works!"
+  })
+})
+
+app.get('/get_user_ip', (req, res) => {
+  res.json({
+    "ip" : ip.address()
   })
 })
 
