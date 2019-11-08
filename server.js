@@ -56,7 +56,7 @@ app.post('/find_user', async(req, res) => {
   console.log(req.body);
   const {firstName, lastName, password} = req.body;
   //console.log(firstName,lastName,password);
-  pool.query(`SELECT * FROM users WHERE first_name = '${firstName}' AND last_name = '${lastName}' AND password = '${password}'`, function (error, results, fields) {
+  pool.query(`SELECT * FROM users WHERE first_name = '${firstName}' AND last_name = '${lastName}' AND password = '${password}' AND is_available = 1;`, function (error, results, fields) {
     if (error) throw error;
     if(results.length == 0) return res.json({result: 'no result'})
     res.json({result: results[0]});
@@ -73,7 +73,7 @@ app.post('/update_user', async(req, res)=> {
 
 app.post('/check_user', async(req, res)=> {
   const {firstName, lastName, password, email} = req.body;
-  pool.query(`SELECT * FROM users WHERE first_name ='${firstName}' AND last_name = '${lastName}';`, function (error, results, fields) {
+  pool.query(`SELECT * FROM users WHERE first_name ='${firstName}' AND last_name = '${lastName}' AND is_available = 1;`, function (error, results, fields) {
     if (error) throw error;
     if(results.length == 0) return res.json({ message: 'no such user'})
     res.json({message: 'this user is already existed'});
@@ -82,13 +82,21 @@ app.post('/check_user', async(req, res)=> {
 
 app.post('/create_user', async(req, res)=> {
   const {firstName, lastName, password, email} = req.body;
-  pool.query(`INSERT INTO users (uuid, first_name, last_name, email, password, register_date) values ('${uuid()}', '${firstName}', '${lastName}', '${email}', '${password}', now());`, function (error, results, fields) {
+  pool.query(`INSERT INTO users (uuid, first_name, last_name, email, password, is_available, register_date) values ('${uuid()}', '${firstName}', '${lastName}', '${email}', '${password}', 1,now());`, function (error, results, fields) {
     if (error) throw error;
     res.json(results);
   });
   // res.json({
   //   firstName,lastName,password, email
   // })
+})
+
+app.post('/delete_user', async(req, res) => {
+   const { uuid } = req.body;
+   pool.query(`UPDATE users SET is_available = 0 WHERE uuid = '${uuid}';`, function(error, results, field){
+     if(error) throw error
+     res.json({'message':'user deleted'})
+   })
 })
 
 app.post('/save_history', async(req, res) => {
