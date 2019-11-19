@@ -82,7 +82,7 @@ app.post('/check_user', async(req, res)=> {
 
 app.post('/create_user', async(req, res)=> {
   const {firstName, lastName, password, email} = req.body;
-  pool.query(`INSERT INTO users (uuid, first_name, last_name, email, password, is_available, register_date) values ('${uuid()}', '${firstName}', '${lastName}', '${email}', '${password}', 1,now());`, function (error, results, fields) {
+  pool.query(`INSERT INTO users (uuid, first_name, last_name, email, password, is_available, img_name, img_url, register_date) values ('${uuid()}', '${firstName}', '${lastName}', '${email}', '${password}', 1, 'no image', 'https://img.icons8.com/plasticine/2x/user.png', now());`, function (error, results, fields) {
     if (error) throw error;
     res.json(results);
   });
@@ -164,6 +164,14 @@ app.post('/delete_favorites', async(req, res) => {
       if(error) throw error;
       res.json(results);
     })
+})
+
+app.post('/upload_img', (req, res)=>{
+  const {uuid, img_name, img_url} = req.body;
+  pool.query(`UPDATE users SET img_name = '${img_name}', img_url = '${img_url}' WHERE uuid = '${uuid}';`, function(error, results, fields){
+      if(error) throw error;
+      res.json(results);
+  })
 })
 
 app.get('/search_movies/:type/:page', async(req, res) => {
