@@ -53,10 +53,10 @@ app.get('/get_users', (req, res) => {
 })
 
 app.post('/find_user', async(req, res) => {
-  console.log(req.body);
+  //console.log(req.body);
   const {firstName, lastName, password} = req.body;
   //console.log(firstName,lastName,password);
-  pool.query(`SELECT * FROM users WHERE first_name = '${firstName}' AND last_name = '${lastName}' AND password = '${password}' AND is_available = 1;`, function (error, results, fields) {
+  pool.query(`SELECT * FROM users WHERE first_name = "${firstName}" AND last_name = "${lastName}" AND password = '${password}' AND is_available = 1;`, function (error, results, fields) {
     if (error) throw error;
     if(results.length == 0) return res.json({result: 'no result'})
     res.json({result: results[0]});
@@ -65,7 +65,7 @@ app.post('/find_user', async(req, res) => {
 
 app.post('/update_user', async(req, res)=> {
   const {firstName, lastName, email, uuid} = req.body;
-  pool.query(`UPDATE users SET first_name = '${firstName}', last_name='${lastName}', email='${email}' WHERE uuid = '${uuid}';`, function (error, results, fields) {
+  pool.query(`UPDATE users SET first_name = "${firstName}", last_name="${lastName}", email='${email}' WHERE uuid = '${uuid}';`, function (error, results, fields) {
     if (error) throw error;
     res.json({result: results});
   });
@@ -73,7 +73,7 @@ app.post('/update_user', async(req, res)=> {
 
 app.post('/check_user', async(req, res)=> {
   const {firstName, lastName, password, email} = req.body;
-  pool.query(`SELECT * FROM users WHERE first_name ='${firstName}' AND last_name = '${lastName}' AND is_available = 1;`, function (error, results, fields) {
+  pool.query(`SELECT * FROM users WHERE first_name ="${firstName}" AND last_name = "${lastName}" AND is_available = 1;`, function (error, results, fields) {
     if (error) throw error;
     if(results.length == 0) return res.json({ message: 'no such user'})
     res.json({message: 'this user is already existed'});
@@ -82,7 +82,7 @@ app.post('/check_user', async(req, res)=> {
 
 app.post('/create_user', async(req, res)=> {
   const {firstName, lastName, password, email} = req.body;
-  pool.query(`INSERT INTO users (uuid, first_name, last_name, email, password, is_available, img_name, img_url, register_date) values ('${uuid()}', '${firstName}', '${lastName}', '${email}', '${password}', 1, 'no image', 'https://img.icons8.com/plasticine/2x/user.png', now());`, function (error, results, fields) {
+  pool.query(`INSERT INTO users (uuid, first_name, last_name, email, password, is_available, img_name, img_url, register_date) values ('${uuid()}', "${firstName}", "${lastName}", '${email}', '${password}', 1, 'no image', 'https://img.icons8.com/plasticine/2x/user.png', now());`, function (error, results, fields) {
     if (error) throw error;
     res.json(results);
   });
@@ -104,7 +104,7 @@ app.post('/save_history', async(req, res) => {
   //console.log(user_id, uuid, movies_info);
   let query = `INSERT INTO history (user_id, uuid, title, price, amount, img, purchase_date) values `;
   movies_info.forEach((movie, index) => {
-    query += `(${user_id}, '${uuid}', '${movie.title}', ${movie.price} ,${movie.amount}, '${movie.img}', now())`;
+    query += `(${user_id}, '${uuid}', "${movie.title}", ${movie.price} ,${movie.amount}, '${movie.img}', now())`;
     if(movies_info.length-1 == index) query += `;`
     else query += `,`
   })
@@ -131,7 +131,7 @@ app.post('/save_favorites', async(req, res) => {
 
   let query = `INSERT INTO favorites (user_id, uuid, fav_uuid, title, price, img, add_date) VALUES `;
   fav_info.forEach((fav, index) => {
-    query += `(${user_id}, '${uuid}', '${fav_uuid[index]}', '${fav.title}', ${fav.price}, '${fav.img}', now())`;
+    query += `(${user_id}, '${uuid}', '${fav_uuid[index]}', "${fav.title}", ${fav.price}, '${fav.img}', now())`;
     if(fav_info.length-1 == index) query += `;`
     else query += `,`
   })
@@ -157,7 +157,7 @@ app.post('/delete_favorites', async(req, res) => {
     let query = `DELETE FROM favorites WHERE fav_uuid IN ('`;
     query += fav_uuids.join(`','`);
     query += `');`;
-
+    
     //console.log(query); 
     //res.json({results: query});
     pool.query(query, function(error, results, fields){
