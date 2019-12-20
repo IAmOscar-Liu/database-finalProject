@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/static/css/main.954ece8a.chunk.css",
-    "main.js": "/static/js/main.37b2fc3a.chunk.js",
-    "main.js.map": "/static/js/main.37b2fc3a.chunk.js.map",
+    "main.js": "/static/js/main.e0c0045c.chunk.js",
+    "main.js.map": "/static/js/main.e0c0045c.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.e077b804.js",
     "runtime-main.js.map": "/static/js/runtime-main.e077b804.js.map",
-    "static/js/2.0916c6b4.chunk.js": "/static/js/2.0916c6b4.chunk.js",
-    "static/js/2.0916c6b4.chunk.js.map": "/static/js/2.0916c6b4.chunk.js.map",
+    "static/js/2.8045556d.chunk.js": "/static/js/2.8045556d.chunk.js",
+    "static/js/2.8045556d.chunk.js.map": "/static/js/2.8045556d.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.d2686ec25a8fba318aa1b368d1add82c.js": "/precache-manifest.d2686ec25a8fba318aa1b368d1add82c.js",
+    "precache-manifest.ff4ef51e1611e2fbcb1c15cc54334e0e.js": "/precache-manifest.ff4ef51e1611e2fbcb1c15cc54334e0e.js",
     "service-worker.js": "/service-worker.js",
     "static/css/main.954ece8a.chunk.css.map": "/static/css/main.954ece8a.chunk.css.map",
     "static/media/Cover.css": "/static/media/frozen-2-2019-review-7.dcdc91ad.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.e077b804.js",
-    "static/js/2.0916c6b4.chunk.js",
+    "static/js/2.8045556d.chunk.js",
     "static/css/main.954ece8a.chunk.css",
-    "static/js/main.37b2fc3a.chunk.js"
+    "static/js/main.e0c0045c.chunk.js"
   ]
 }
