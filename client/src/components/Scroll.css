@@ -1,0 +1,79 @@
+.scroll-container{
+    margin: calc(12vh + 56px + 20px) 2% 0 2%;
+    width:96%;
+    height: 70px;
+    background-color: var(--right-bg-color);
+    position: relative;
+    overflow: hidden;
+    z-index: 100;
+}
+
+.scroll-container > h1{
+    margin: 0;
+    font-size: 32px;
+    line-height: 36px;
+    position: absolute;
+    width: 80%;
+    height: 36px;
+    color: var(--left-bg-color);
+    left: 50%;
+    top: 50%;
+    text-align: center;
+    cursor: default;
+    /* transform: translate(-50%,-50%); */
+    animation: rightH1 8s infinite linear ;
+}
+
+
+.scroll-container .scroll-container-leftChild{
+    position: absolute;
+    right:50%;
+    top:0;
+    width:100%;
+    height: 100%;
+    background-color: var(--left-bg-color);
+    transform-origin: right 50%;
+    transform: skew(var(--scroll-skew-angle));
+    z-index: 200;    
+    overflow: hidden;
+}
+
+.scroll-container .scroll-container-leftChild > div{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.scroll-container .scroll-container-leftChild > div > h1{
+    margin: 0;
+    font-size: 32px;
+    line-height: 36px;
+    position: absolute;
+    width: 80%;
+    height: 36px;
+    color: var(--right-bg-color);
+    left: 100%;
+    top: 50%;
+    text-align: center;
+    cursor: default;
+    /* transform: translate(-50%,-50%) skew(calc(-1*var(--scroll-skew-angle)));  */
+    animation: leftH1 8s infinite linear ;  
+}
+
+@keyframes leftH1{
+    0%{
+        transform: translate(calc(-50% + 120%),-50%) skew(calc(-1*var(--scroll-skew-angle))) ;
+    }
+    100%{
+        transform: translate(calc(-50% - 120%),-50%) skew(calc(-1*var(--scroll-skew-angle)));
+    }
+}
+
+@keyframes rightH1{
+    0%{
+        transform: translate(calc(-50% + 120%),-50%) ;
+    }
+    100%{
+        transform: translate(calc(-50% - 120%),-50%) ;
+    }
+}

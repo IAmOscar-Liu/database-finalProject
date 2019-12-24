@@ -1,0 +1,111 @@
+.user-outer-container{
+    background-color: beige;
+    width: 100%;
+    padding-top: calc(12vh + 56px);
+    /* height: calc(100% - 12vh - 56px); */
+    /* min-height: calc(100vh - 12vh - 56px); */
+}
+
+.user-container {
+    margin: 25px 3% auto 3%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.user-container h1{
+  width: 90%;
+  margin-bottom: 16px;
+  color: brown;
+}
+
+.user-container img{
+    border-radius: 50%;
+    width: 70%;
+    height: 27vh;
+    max-height: 300px;
+    margin-bottom: 18px;
+}
+
+.user-container .upload-btn{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-container .upload-btn label{
+    margin-bottom: 7px;
+    cursor: pointer;
+}
+
+.user-container .upload-btn label > svg{
+    margin-right: 4px;
+}
+
+.user-container .upload-btn #submit-is-updating,
+.user-container .upload-btn #close-is-updating,
+.user-container .upload-btn #open-is-updating{
+    outline: none;
+    cursor: pointer;
+    padding: 2px 5px;
+    border-radius: 4px;
+    margin: 0 5px;
+}
+
+.user-container div.user-info{
+   margin-bottom: 12px;
+   width: 90%;
+   padding: 12px 0;
+}
+
+.user-container div.user-info p{
+    font-size: 20px;
+    color: brown;
+    line-height: 1.8;
+}
+
+.user-container div.user-info p:nth-of-type(3) input{
+    width: 200px;
+}
+
+.user-container div.user-info p span{
+    color: blueviolet;
+    position: relative;
+}
+
+.user-container div.user-info p span::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: brown;
+    bottom: -3px;
+    left: 0;
+}
+
+.user-container div.user-btn{
+    display: flex;
+    width: 90%;
+    justify-content: center;
+}
+
+.user-container div.user-btn button{
+    border: 3px grey solid;
+    border-radius: 10px;
+    color: grey;
+    padding: 5px;
+    font-size: 20px;
+    background-color: transparent;
+    outline: none;
+    margin: 0 1%;
+}  
+
+.user-container div.user-btn button:hover{
+    cursor: pointer;
+    background-color: rgba(255,255,255,.8);
+}
+
+

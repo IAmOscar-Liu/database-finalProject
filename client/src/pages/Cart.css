@@ -1,0 +1,221 @@
+.cart-container{
+    margin: calc(12vh + 56px + 20px) 2% 3% 2%;
+    min-height: calc(100vh - 15vh - 76px);
+}
+
+.cart-container header{
+    height: 18vh;
+    width: 100%;
+    /* position: fixed; */
+    /* top: 0; */
+    /* left: 0; */
+    background-color: blueviolet;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart-container header h1{
+    color: bisque;
+    font-size: 36px;
+}
+
+.cart-container header h1 > svg{
+    margin-right: 10px;
+}
+
+.cart-container header h1 i.icon-resize{
+    font-size: 27px;
+}
+
+.cart-container header p{
+    margin-top: 3vh;
+    font-size: 22px;
+    color: chartreuse;
+    font-weight: 600;
+}
+
+.cart-container .utility-btn{
+    margin-top: 20px;
+    width: 100%;
+    min-width: 600px;
+    display: flex;
+    justify-content: center;
+}
+
+.cart-container .utility-btn .exit-Btn{
+    /* letter-spacing: 2px; */
+    /* width: 70px; */
+    padding: 0 6px;
+    margin: 0 5px;
+    border: none;
+    height: 35px;
+    font-size: 20px;
+    line-height: 35px;
+    background-color: firebrick;
+    color: white;
+    border-radius: 11px;
+}
+
+.cart-container .utility-btn .exit-Btn:nth-of-type(2){
+  background-color: royalblue;
+}
+
+.cart-container .utility-btn .exit-Btn:hover{
+    cursor: pointer;
+    opacity: .7;
+    font-weight: bold;
+}
+.cart-container .utility-btn .exit-Btn:focus{
+    outline: none;
+}
+
+.cart-container main{
+    margin:20px 5% 2% 5%;
+    width:90%;
+}
+
+.cart-container main ul{
+    width: 100%;
+}
+
+.cart-container main ul li{
+    list-style-type: none;
+    display: block;
+    overflow: hidden;
+}
+
+.cart-container main ul li section{
+    min-width: 740px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 70px;
+    background-color: burlywood;
+    border-bottom: 2px dimgrey solid;
+}
+
+.cart-container main ul li[data-last = 'true'] section{
+    border-bottom:none;
+}
+
+.cart-container main ul li section img{
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    margin-left: 15px;
+}
+
+.cart-container main ul li section h2{
+    width: calc(36% + 1000px);
+    margin-left: 10px;
+    font-size: 24px;
+    color: darkslategrey;
+    font-weight: 600;
+    overflow: hidden;
+    text-align: left;
+    z-index: 20;
+}
+
+.cart-container main ul li section p{
+    z-index: 50;
+    font-size: 20px;
+    font-weight: bold;   
+    background: burlywood;
+    line-height: 60px;
+}
+
+.cart-container main ul li section p.price{
+    margin-left: -1000px;
+    padding-left: 10px;
+    width: 60px;
+    color: brown;
+}
+
+.cart-container main ul li section p.amount{
+    width:170px;
+    padding-left: 8px;
+    color: blue;
+    position: relative;
+}
+
+.cart-container main ul li section p.amount button{
+    position: absolute;
+    top: calc(50% - 12px);
+    border: none;
+    background-color: blue;
+    color: white;
+    font-size: 20px;
+    line-height: 25px;
+    text-align: center;
+    width:25px;
+    height:25px;
+    cursor: pointer;
+}
+
+.cart-container main ul li section p.amount button:focus{
+    outline: none;
+}
+
+.cart-container main ul li section p.amount button.disable{
+    cursor: default;
+    background-color: lightblue;
+}
+
+.cart-container main ul li section p.amount button:nth-of-type(1){
+    right:29px;
+}
+.cart-container main ul li section p.amount button:nth-of-type(2){
+    right:0;
+}
+
+.cart-container main ul li section p.each-total-price{
+    width: 225px;
+    padding-left: 11px;
+    color: orchid;
+    position: relative;
+}
+
+.cart-container main ul li section p.each-total-price::before{
+    content: '';
+    position: absolute;
+    top: calc(50% + 13px);
+    left: 71px;
+    width: 43px;
+    height: 2px;
+    background-color: chocolate;
+}
+
+.cart-container main ul li section p.each-total-price button{
+    position: absolute;
+    top: calc(50% - 12px);
+    left: 125px;
+    border: none;
+    border-radius: 8px;
+    background-color: teal;
+    color: white;
+    font-size: 14px;
+    line-height: 25px;
+    text-align: center;
+    width:78px;
+    height:25px;
+    cursor: pointer;
+}
+
+.cart-container main ul li section p.each-total-price button:nth-of-type(2){
+    left: 206px;
+    width: auto; 
+    height: auto;
+    padding: 0px 4px;
+    background-color: tomato;
+}
+
+.cart-container main ul li section p.each-total-price button.disable{
+    background-color: thistle;
+}
+
+.cart-container main ul li section p.each-total-price button:focus{
+    outline: none;
+}

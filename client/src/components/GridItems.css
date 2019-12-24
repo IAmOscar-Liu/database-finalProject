@@ -1,0 +1,46 @@
+.star-container{
+    --star-container-width: 125px;
+    --star-spacing: calc((var(--star-container-width) - 100px) / 4);
+    --star-cover-width: calc(var(--star-rating-floor) * var(--star-spacing) + var(--star-rating) * 20px); 
+
+    margin: 0 8px;
+    width: var(--star-container-width);
+    height:21px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.star-cover{
+    position: absolute;
+    z-index: 101;
+    background-color: rgb(188, 190, 175);
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: var(--star-cover-width);  /*Adjust the width*/
+    overflow: hidden;
+}
+
+.star-cover > div{
+    position: relative;
+    width: var(--star-container-width);
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.star{
+    width:20px;
+    height: 20px;
+    background-color: gray;
+    -webkit-clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+.highlight-star{
+    background-color: gold;
+}

@@ -1,0 +1,239 @@
+
+.nav-container header{
+    height: 100%;
+    width: 100%;
+    display: grid;
+    background-color: rgb(236, 236, 28);
+    grid-template-columns: 290px auto 20% 15% 0;
+}
+
+@media screen and (max-width: 840px){
+    .nav-container header{
+        grid-template-columns: 290px auto 0 0 60px;
+    }
+}
+
+.nav-container header > h1{
+    height: 100%;
+    padding-left: 5%;
+    font-size: 36px;
+    line-height: 55px;
+}
+
+.nav-container header > h1 span{
+  margin-left: 2%;
+}
+
+.nav-container header > nav{
+  justify-self: left;
+  margin-left: 10px;
+}
+
+.nav-container header > nav ul {
+    height: 100%;
+    display: flex;
+}
+
+.nav-container header > nav ul li{
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    /* line-height: 57px; */
+    font-size: 24px;
+    padding: 0 5px;
+}
+
+.nav-container header > nav ul li a{
+    color: black;
+    text-decoration: none;
+}
+
+.nav-container header > nav ul li:hover{
+    cursor: pointer;
+    background-color: black;
+}
+
+.nav-container header > nav ul li:hover a{
+    color: rgb(236, 236, 28);
+}
+
+
+.nav-container header > nav ul li a.link-active{
+    font-weight: bolder;
+    text-decoration: underline;
+}
+
+.nav-container header > .btn-wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.nav-container header > .btn-wrapper button.btn-wrapper-controller{
+    border: 3px solid black;
+    border-radius: 8px;
+    font-size: 20px;
+    padding: 5px;
+    background-color: transparent;
+    outline: none;
+}
+
+.nav-container header > .btn-wrapper button.btn-wrapper-controller svg{
+    margin-left: 3px;
+}
+
+.nav-container header > .btn-wrapper button.btn-wrapper-controller:hover{
+    cursor: pointer;
+    font-style: italic;
+    background-color: rgba(0,0,0,.5);   
+}
+
+.nav-container header > .btn-wrapper .btn-wrapper-list{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    width: 200px;
+    height: 65px;
+    bottom: -58px;
+    background-color: transparent;
+    z-index: 30000;
+}
+
+.nav-container header > .btn-wrapper .btn-wrapper-list.open{
+    display: flex;
+}
+
+.nav-container header > .btn-wrapper .btn-wrapper-list button{
+    width: 80%;
+    min-width: 125px;
+    font-size: 20px;
+    background-color: white;
+    border: 1px solid darkgray;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    height: 30px;
+    outline: none;
+}
+
+.nav-container header > .btn-wrapper .btn-wrapper-list button:nth-of-type(2){
+    border-radius: 0;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.nav-container header > .btn-wrapper .btn-wrapper-list button:hover{
+    background-color: lightgray;
+    cursor: pointer;
+}
+
+.nav-container header > p{
+    font-size: 28px;
+    display: flex;
+    justify-content: space-evenly;
+    margin-right: 20%;
+    align-items: center;
+}
+
+.nav-container header > p svg:hover{
+    cursor: pointer;
+    color: darkgray;
+}
+
+.nav-container header > section{
+    display: none;
+    font-size: 28px;
+    width: 59px;
+    height: 100%;
+    align-items: center;
+    position: relative;
+}
+
+.nav-container header > section > input[type='checkbox']{
+    width: 25px;
+    height: 33px;
+    z-index: 1;
+    cursor: pointer;
+    background: transparent;
+    border-radius: 50%;
+    opacity: 0;
+}
+
+.nav-container header > section > input[type='checkbox']:hover + p.menu-toggle-btn > svg{
+    color: lightgray;
+}
+
+.nav-container header > section > p.menu-toggle-btn {
+    margin-left: -25px
+}
+
+/* .nav-container header > section > p.menu-toggle-btn > svg:hover{
+    cursor: pointer;
+    color: lightgray;
+} */
+
+.nav-container header > section > p.menu-toggle-items{
+    position: absolute;
+    width: 120px;
+    /* height: 400px; */
+    background-color: rgb(236, 236, 28);
+    right: -3px;
+    top: 56px;
+    z-index: 50000;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.nav-container header > section > input[type='checkbox']:checked + p.menu-toggle-btn + p.menu-toggle-items{
+    display: flex;
+}
+
+/* .nav-container header > section > p.menu-toggle-items.open{
+    display: flex;
+} */
+
+/* .nav-container header > section > p.menu-toggle-items > span{
+    margin-left: 12px;
+} */
+
+.nav-container header > section > p.menu-toggle-items > span{
+    width: 100%;
+    padding-left: 17px;
+}
+
+.nav-container header > section > p.menu-toggle-items > span:nth-of-type(1):hover,
+.nav-container header > section > p.menu-toggle-items > span:nth-of-type(2):hover{
+    background-color: black;
+    color: yellow;
+    cursor: pointer;
+}
+
+.nav-container header > section > p.menu-toggle-items > span > span > svg{
+    font-size: 22px;
+    margin-right: 12px;
+}
+
+.nav-container header > section > p.menu-toggle-items > span > span > svg:hover{
+    color: lightgray;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 840px){
+    .nav-container header > .btn-wrapper,
+    .nav-container header > p {
+        display: none;
+    }
+    .nav-container header > section {
+        display: flex;
+    }
+}
+
+
+
+  

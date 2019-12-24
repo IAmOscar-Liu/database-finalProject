@@ -1,0 +1,363 @@
+.cover-container {
+    position: fixed;
+    z-index: 35000;
+    width: 100vw;
+    height: calc(100vh - 56px);
+    top: 56px;
+    left: 0;
+    --cover-height: calc(100vh - 56px);
+    --btn-width:200px;
+    --btn-height:60px;
+    --img-url : url(../asset/frozen-2-2019-review-7.jpg);
+    background: white;
+    /* background-size: 100vw var(--cover-height); */
+    /* width: 100vw;
+    height: 100vh; */
+}
+
+.cover-container.hide {
+    display: none;
+}
+
+.cover-container > div{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: var(--img-url);
+    background-size: 100vw var(--cover-height);
+}
+
+.cover-container .cover-container-fadein{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 36%;
+}
+
+.cover-container .cover-container-fadein > div{
+    width: 100%;
+}
+
+.cover-container .cover-container-fadein > div h1{
+    display: flex;
+    justify-content: center;
+    color: rgb(79, 213, 59);
+    font-size: 3rem;
+    text-shadow: 3px 3px 2px darkgrey;
+}
+
+.cover-container .cover-container-fadein > div h1 span{
+    margin: 0 7px;
+    transform: translate(0, 0);
+    opacity: 0;
+    animation: animFadeinSpan 1s cubic-bezier(0, 0.31, 0.33, 0.95) calc(var(--fadein-span-index)*0.15s + 0.3s) forwards;
+}
+
+@keyframes animFadeinSpan {
+    0%{
+        transform: translate(calc(30vw + 150px * var(--fadein-span-index)), -20vh);
+        opacity: 0;
+    }
+    100%{
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+}
+
+.cover-container .cover-container-scale{
+    position: absolute;
+    width: 100%;
+    height: 48px;
+    top: 48%;
+    left: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.cover-container .cover-container-scale > div{
+    overflow: hidden;
+    width: 0;  /* initial value */
+    height: 100%;
+    position: relative;
+    animation: animScale 1.6s linear 1.6s forwards;
+}
+
+@keyframes animScale {
+  0%{
+      width: 0;
+  }
+  100%{
+      width: 100%;
+  }
+}
+
+.cover-container .cover-container-scale > div > p{
+    color: sandybrown;
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 48px;
+    width: 100vw;
+    height: 100%;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: calc(50% - 50vw);
+    text-shadow: 2px 2px 2px darkgrey;
+}
+
+.cover-container .cover-container-btn{
+    --btn1-top-offset: -100px;
+    position: absolute;
+    top: calc(50% - var(--btn1-top-offset) - (var(--btn-height)/2));
+    width:var(--btn-width);
+    height: var(--btn-height); 
+    opacity: 0;
+    /* transform: translateY(80px); */
+    animation: coverBtnAnim .7s ease-in 2s forwards;
+}
+
+@keyframes coverBtnAnim {
+  0%{
+    opacity: 0;
+    transform: translateY(30px);   
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cover-container .cover-container-btn-1{
+    --btn1-left-offset: 120px;
+    left: calc(50% - var(--btn1-left-offset) - (var(--btn-width)/2));
+}
+
+.cover-container .cover-container-btn-2{
+    --btn2-left-offset: -120px;
+    left: calc(50% - var(--btn2-left-offset) - (var(--btn-width)/2));
+}
+
+.cover-container .btn-wrapper{
+    margin: auto;
+    width:100%;
+    height: 100%;
+    /* background-color: skyblue; */
+
+    /* background: url(https://pre00.deviantart.net/1302/th/pre/i/2014/009/8/1/frozen_wallpaper_1920_x_1080_by_atom45-d71ktut.jpg); */
+    background: var(--img-url);
+    background-size: 100vw var(--cover-height);
+    background-position: calc(-1*(50vw - var(--btn1-left-offset) - var(--btn-width)/2)) calc(-1*((var(--cover-height)/2) - var(--btn1-top-offset) - var(--btn-height)/2)); 
+
+    border: none;
+    border-radius: 25px; 
+    overflow: hidden; 
+    position: relative;
+    animation: coverBtnBg_outer1 .7s ease-in 2s forwards; 
+}
+
+.cover-container .cover-container-btn-2 .btn-wrapper{
+    background-position: calc(-1*(50vw - var(--btn2-left-offset) - var(--btn-width)/2)) calc(-1*((var(--cover-height)/2) - var(--btn1-top-offset) - var(--btn-height)/2));
+    animation: coverBtnBg_outer2 .7s ease-in 2s forwards; 
+}
+
+@keyframes coverBtnBg_outer1{
+    0%{
+        background-position: calc(-1*(50vw - var(--btn1-left-offset) - var(--btn-width)/2)) calc(-1*((var(--cover-height)/2) - var(--btn1-top-offset) - var(--btn-height)/2 + 30px));
+    }
+    100%{
+        background-position: calc(-1*(50vw - var(--btn1-left-offset) - var(--btn-width)/2)) calc(-1*((var(--cover-height)/2) - var(--btn1-top-offset) - var(--btn-height)/2));
+    }
+}
+
+@keyframes coverBtnBg_outer2{
+    0%{
+        background-position: calc(-1*(50vw - var(--btn2-left-offset) - var(--btn-width)/2)) calc(-1*((var(--cover-height)/2) - var(--btn1-top-offset) - var(--btn-height)/2 + 30px));
+    }
+    100%{
+        background-position: calc(-1*(50vw - var(--btn2-left-offset) - var(--btn-width)/2)) calc(-1*((var(--cover-height)/2) - var(--btn1-top-offset) - var(--btn-height)/2));
+    }
+}
+
+.cover-container div.btn-top-left, div.btn-bottom-right{
+    width:100%;
+    height: 100%;
+    background-color: transparent;
+    position: relative;
+    z-index: 35100;
+    opacity: 0;
+}
+
+/* .cover-container div.bottom-right{
+    width:100%;
+    height: 100%;
+    background-color: transparent;
+    position: relative;
+    z-index: 100;
+    opacity: 0;
+} */
+
+
+.cover-container div.btn-bottom-right{
+    margin-top: calc(-1*var(--btn-height));
+}
+
+
+.cover-container div.btn-top-left::before, .cover-container div.btn-bottom-right::before{
+    content: "";
+    position: absolute;
+    width: var(--btn-height);
+    height: 20px;
+    background-color: white;
+}
+
+.cover-container div.btn-top-left::after, .cover-container div.btn-bottom-right::after{
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: var(--btn-height);
+    background-color: white;
+}
+
+.cover-container div.btn-top-left::before{
+    top: 0;
+    left: 100%;
+}
+
+.cover-container div.btn-top-left::after{
+    top:  calc(100% - var(--btn-height) - var(--btn-width));
+    left: 0; 
+}
+
+.cover-container div.btn-bottom-right::before{
+    bottom: 0;
+    right: 100%;
+}
+
+.cover-container div.btn-bottom-right::after{
+    bottom:  calc(100% - var(--btn-height) - var(--btn-width));
+    right: 0;
+}
+
+.cover-container div.btn-cover{
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: calc(100% - 6px);
+    height: calc(100% - 6px);
+    z-index: 35101;
+    border-radius: 23px;
+    /* background-color: skyblue; */
+
+    /* background: url(https://pre00.deviantart.net/1302/th/pre/i/2014/009/8/1/frozen_wallpaper_1920_x_1080_by_atom45-d71ktut.jpg); */
+    background: var(--img-url);
+    background-size: 100vw var(--cover-height);
+    background-position: calc(-1*(50vw - var(--btn1-left-offset) - (var(--btn-width) - 6px)/2)) calc(-1*((var(--cover-height)/2) - var(--btn1-top-offset) - (var(--btn-height) - 6px)/2));
+    animation: coverBtnBg1 .7s ease-in 2s forwards; 
+}
+
+.cover-container .cover-container-btn-2 div.btn-cover{
+    background-position: calc(-1*(50vw - var(--btn2-left-offset) - (var(--btn-width) - 6px)/2)) calc(-1*((var(--cover-height)/2) - var(--btn1-top-offset) - (var(--btn-height) - 6px)/2)); 
+    animation: coverBtnBg2 .7s ease-in 2s forwards; 
+}
+
+@keyframes coverBtnBg1{
+    0%{
+        background-position: calc(-1*(50vw - var(--btn1-left-offset) - (var(--btn-width) - 6px)/2)) calc(-1*((var(--cover-height)/2) - var(--btn1-top-offset) - (var(--btn-height) - 6px)/2 + 30px)); 
+    }
+    100%{
+        background-position: calc(-1*(50vw - var(--btn1-left-offset) - (var(--btn-width) - 6px)/2)) calc(-1*((var(--cover-height)/2) - var(--btn1-top-offset) - (var(--btn-height) - 6px)/2));
+    }
+}
+
+@keyframes coverBtnBg2{
+    0%{
+        background-position: calc(-1*(50vw - var(--btn2-left-offset) - (var(--btn-width) - 6px)/2)) calc(-1*((var(--cover-height)/2) - var(--btn1-top-offset) - (var(--btn-height) - 6px)/2 + 30px));    
+    }
+    100%{
+        background-position: calc(-1*(50vw - var(--btn2-left-offset) - (var(--btn-width) - 6px)/2)) calc(-1*((var(--cover-height)/2) - var(--btn1-top-offset) - (var(--btn-height) - 6px)/2));
+    }
+}
+
+.cover-container button{
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: calc(100% - 12px);
+    height: calc(100% - 12px);
+    z-index: 35102;
+    outline: none;
+    border: 3px white solid;
+    border-radius: 20px;
+    background-color: transparent;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 2px;
+    transition: background-color .5s ease,
+                font-size .3s ease;
+}
+
+.cover-container button:hover{
+    cursor: pointer;
+    background-color:rgba(255,255,255,.35);
+    font-style: italic;
+    font-size: 22px;
+}
+
+.cover-container button:hover + .btn-top-left, .cover-container button:hover + .btn-top-left + .btn-bottom-right{
+    opacity: 1;
+}
+
+.cover-container button:hover + .btn-top-left::before{
+    animation: topHorizontalAnim 1s infinite linear;
+}
+
+.cover-container button:hover + .btn-top-left::after{
+    animation: leftVerticalAnim 1s linear .2s infinite; 
+} 
+
+.cover-container button:hover + .btn-top-left + .btn-bottom-right::before{
+    animation: bottomHorizontalAnim 1s infinite linear;
+}
+
+.cover-container button:hover + .btn-top-left + .btn-bottom-right::after{
+    animation: rightVerticalAnim 1s linear .2s infinite;
+}
+
+
+@keyframes topHorizontalAnim{
+    0%{
+        left: 100%;
+    }
+    100%{
+        left: calc(-1*var(--btn-height))
+    }
+}
+
+@keyframes leftVerticalAnim{
+    0%{
+        top: calc(100% - var(--btn-height) - var(--btn-width))
+    }
+    100%{
+        top: 100%;       
+    }
+}
+
+
+@keyframes bottomHorizontalAnim{
+    0%{
+        right: 100%;
+    }
+    100%{
+        right: calc(-1*var(--btn-height))
+    }
+}
+
+@keyframes rightVerticalAnim{
+    0%{
+        bottom: calc(100% - var(--btn-height) - var(--btn-width))
+    }
+    100%{
+        bottom: 100%;       
+    }
+}

@@ -1,0 +1,135 @@
+.favorites-container{
+    margin: calc(12vh + 56px + 20px) 2% 3% 2%; 
+    min-height: calc(100vh - 15vh - 76px);
+}
+
+.no-login-h1{
+    margin: 8px 0 0 3%;
+    color: royalblue;
+}
+
+.favorite-login{
+    width: 100%;
+}
+
+.favorite-login > h1{
+    margin-bottom: 4px;
+    padding: 5px 2%;
+    color: rgb(151, 36, 36);
+}
+
+.favorite-login .fav-commit-btn{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.favorite-login .fav-commit-btn::before{
+    content: '';
+    position: absolute;
+    width: 94%;
+    height: 3px;
+    background-color: sienna;
+    left: 3%;
+    bottom: -17px;
+}
+
+.favorite-login .fav-commit-btn button{
+    margin: 0 3px;
+    background-color: coral;
+    color: white;
+    padding: 3px 7px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+.favorite-login .fav-commit-btn button:nth-of-type(2){
+    background-color: limegreen;
+}
+
+.favorite-login .fav-commit-btn button:hover{
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.favorite-login .fav-getuser-btn {
+    margin-top: 28px;
+    width: 60%;
+    min-width: 400px;
+    display: flex;
+    justify-content: center;
+}
+
+.favorite-login .fav-getuser-btn button{
+    margin: 0 4px;
+    background-color: royalblue;
+    color: white;
+    padding: 5px 9px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+.favorite-login .fav-getuser-btn button:hover{
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.fav-list-container{
+    width: 70%;
+    min-width: 600px;
+    margin: 10px 0 16px 2%;
+}
+
+.fav-list-container .fav-list-li{
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: 45% 10% auto;
+}
+
+.fav-list-container .fav-list-li p{
+    border-bottom: 1px black solid;
+    border-right: 1px solid black;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2px 0 2px 5px;
+}
+
+.fav-list-container .fav-list-li p:nth-of-type(3){
+    position: relative;
+}
+
+.fav-list-container .fav-list-li p:nth-of-type(3) span:nth-of-type(2),
+.fav-list-container .fav-list-li p:nth-of-type(3) span:nth-of-type(3){
+    position: absolute;
+    top: 3;
+    right: 5px;
+}
+
+.fav-list-container .fav-list-li p:nth-of-type(3) span input{
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+}
+
+.fav-list-container .fav-list-li p:nth-of-type(1){
+    border-left: black 1px solid;
+}
+
+.fav-list-container .fav-list-li:nth-of-type(1) p{
+    border-top: black 1px solid;
+}
+
+.fav-list-container .fav-list-li p img{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: none;
+    margin-right: 4px;
+}

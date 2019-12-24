@@ -1,0 +1,136 @@
+.signin-container {
+    padding: calc(12vh + 76px) 2% 0 2%; 
+    height: 97vh; 
+}
+
+.signin-container-both{
+    width: 600px;
+    margin: 35px 0 0 calc(50% - 300px);
+    display: flex;
+    flex-direction: column;
+}
+
+.signin-btn-controller button {
+    background-color: cadetblue;
+    color: wheat;
+    font-size: 24px;
+    padding: 7px 12px;
+    /* margin-right: -2px; */
+    outline: none;
+    border: none;
+    border-top-left-radius: 10px;
+}
+
+.signin-btn-controller button:nth-of-type(2) {
+    border-top-right-radius: 10px;
+    border-top-left-radius: 0;
+}
+
+.signin-btn-controller button.inactive{
+    background-color: skyblue;
+    cursor: pointer;
+}
+
+.signin-form, .signup-form {
+    display: flex;
+    flex-direction: column;
+    background-color: cadetblue;
+    align-items: center;
+    padding: 25px 0;
+    border-radius: 20px;
+    border-top-left-radius: 0;
+}
+
+.signin-form h1, .signup-form h1 {
+    margin-bottom: 14px;
+    color: gold;
+    position: relative;
+    line-height: 1.6;
+}
+
+.signin-form h1::before, .signup-form h1::before {
+    content: '';
+    position: absolute;
+    width: calc(100% + 50px);
+    height: 3px;
+    background-color: sienna;
+    bottom: -3px;
+    left: -25px;
+}
+
+.signin-form > div, .signup-form > div{
+    margin-top: 10px;
+    width: 56%;
+}
+
+.signin-form > div p, .signup-form > div p{
+    display: grid;
+    grid-template-columns: 32% 68%;
+    margin: 7px 0;
+}
+
+.signin-form > div p label, .signup-form > div p label{
+    width: 102%;
+    background-color: chocolate;
+    padding: 2px 0 2px 12px;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    font-size: 16px;
+    color: antiquewhite;
+    font-weight: 500;
+}
+
+.signin-form > div p input, .signup-form > div p input{
+    width: 100%;
+    border: chocolate 3px solid;
+    outline: none;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    font-size: 16px;
+    padding-left: 7px;
+}
+
+.signin-form > div p input:active, .signup-form > div p input:active,
+.signin-form > div p input:focus, .signup-form > div p input:focus{
+    background-color: tan;
+}
+
+.signin-form  button, .signup-form  button{
+    margin: 18px 0 3px 0;
+    padding: 4px 16px;
+    outline: none;
+    background-color: rgb(230, 142, 202);
+    border: rgb(151, 84, 84) 3px solid;
+    border-radius: 13px;
+    font-size: 19px;
+    color: rgb(151, 84, 84);
+    font-weight: 700;
+}
+
+.signin-form  button:hover, .signup-form  button:hover{
+    background-color: rgba(230, 142, 202, .7);
+    font-style: italic;
+    cursor: pointer;
+}
+
+.signin-container-signin > h1{
+    padding: 10px 0 10px 3%;
+    color: rgb(38, 76, 151);
+}
+
+.signin-container-signin > button{
+    margin-left: 5%;
+    margin-top: 15px;
+    padding: 4px 13px;
+    font-size: 22px;
+    outline: none;
+    border-radius: 14px;
+    background-color: blue;
+    color: white;
+}
+
+.signin-container-signin > button:hover{
+    cursor: pointer;
+    font-weight: 700;
+    background: lightblue;
+}
