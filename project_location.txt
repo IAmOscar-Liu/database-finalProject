@@ -1,0 +1,3 @@
+Web Address: https://warm-everglades-92750.herokuapp.com/
+Code on Github: https://github.com/IAmOscar-Liu/database-finalProject
+Movie API: https://api.themoviedb.org/3/movie/top_rated?api_key=5fb93387541fc093f329bc1481d3b3e8&language=en-US&page=1
